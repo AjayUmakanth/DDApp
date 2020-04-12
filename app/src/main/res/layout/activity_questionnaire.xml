@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".QuestionnaireActivity">
+
+    <Button
+        android:id="@+id/previous"
+        android:layout_width="100sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="240sp"
+        android:layout_marginLeft="240sp"
+        android:layout_marginTop="40sp"
+        android:background="@color/button_color"
+        android:text="@string/previous"
+        android:textColor="@color/text_color"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/previous"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="240sp"
+        android:layout_marginLeft="240sp"
+        android:layout_marginTop="33sp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:background="@color/button_color"
+        android:text="next"
+        android:textColor="@color/text_color"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="363sp"
+        android:layout_height="157sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28sp"
+        android:layout_marginLeft="28sp"
+        android:layout_marginTop="117sp"
+        android:gravity="center|center_vertical"
+        android:text="@string/placeholder"
+        android:textColor="@color/text_color"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="252sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="82sp"
+        android:layout_marginLeft="82sp"
+        android:layout_marginTop="15sp">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_option_1"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_option_2"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_option_3"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_option_4"
+            android:textColor="@color/text_color"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="361sp"
+        android:layout_height="83sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="29sp"
+        android:layout_marginLeft="29sp"
+        android:layout_marginTop="13sp"
+        android:textColor="@color/text_color"
+        android:textStyle="bold"
+        android:text="@string/question"
+        android:textSize="18sp" />
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="100sp"
+        android:layout_height="129sp"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="92sp"
+        android:layout_marginLeft="92sp"
+        android:layout_marginTop="39sp" />
+
+</RelativeLayout>

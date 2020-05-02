@@ -7,6 +7,6 @@
     <string name="radio_option_4">Nearly every day</string>
     <string name="question">Over the last 2 weeks, how often have you been bothered by any of the following problems?</string>
     <string name="placeholder">-placeholder-</string>
-    <string name="register"><u>No account?? Create one!!</u></string>
+    <string name="register"><u>Sign up</u></string>
     <string name="baseURL">https://us-central1-depression-detection-030498.cloudfunctions.net/api/</string>
 </resources>

@@ -24,6 +24,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+
 public class LoginActivity extends AppCompatActivity {
     TextView email,password;
     ProgressBar progressBar;
@@ -83,9 +85,15 @@ public class LoginActivity extends AppCompatActivity {
                 public void onErrorResponse(VolleyError error) {
                     progressBar.setVisibility(View.INVISIBLE);
                     VolleyLog.d("JSONPost", "Error: " + error.getMessage());
-                    //Toast.makeText(getApplicationContext(), error.networkResponse, Toast.LENGTH_SHORT).show();
-
-                    //pDialog.hide();
+                    try {
+                        String responseBody = new String(error.networkResponse.data, "utf-8");
+                        JSONObject data = new JSONObject(responseBody);
+                        Toast.makeText(getApplicationContext(),data.getString("error"),Toast.LENGTH_SHORT).show();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         queue.add(request);

@@ -28,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -77,10 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                     else
                     {
-                     /*   new AlertDialog.Builder(getApplicationContext())
-                                .setTitle("Error!!")
-                                .setMessage("Please fill in the values properly!!")
-                                .setPositiveButton("Yes", null).show();*/
+                        Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -121,7 +119,15 @@ public class RegisterActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 progressBar.setVisibility(View.INVISIBLE);
                 VolleyLog.d("JSONPost", "Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(), error.networkResponse.data.toString(), Toast.LENGTH_SHORT).show();
+                try {
+                    String responseBody = new String(error.networkResponse.data, "utf-8");
+                    JSONObject data = new JSONObject(responseBody);
+                    Toast.makeText(getApplicationContext(),data.getString("error"),Toast.LENGTH_SHORT).show();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 //pDialog.hide();
             }

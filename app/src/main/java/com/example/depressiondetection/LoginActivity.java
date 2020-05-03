@@ -72,6 +72,8 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(JSONObject response) {
                             progressBar.setVisibility(View.INVISIBLE);
                             Log.d("JSONPost", response.toString());
+                            PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit()
+                                    .putString("user_data",response.toString()).apply();
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                             startActivity(intent);
                         }
@@ -81,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onErrorResponse(VolleyError error) {
                     progressBar.setVisibility(View.INVISIBLE);
                     VolleyLog.d("JSONPost", "Error: " + error.getMessage());
-                    Toast.makeText(getApplicationContext(), error.networkResponse.data.toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), error.networkResponse, Toast.LENGTH_SHORT).show();
 
                     //pDialog.hide();
                 }

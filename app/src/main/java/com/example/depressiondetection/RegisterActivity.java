@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -29,25 +31,30 @@ import org.json.JSONObject;
 import java.util.Calendar;
 
 public class RegisterActivity extends AppCompatActivity {
-    private TextView name,email,phone,dob,pass,pass2;
+    private EditText name,email,phone,pass,pass2;
+    private TextView dob;
     private RadioGroup gender;
-    Button register;
+    ProgressBar progressBar;
+    Button register,selectDOB;
+    Calendar calender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        calender = Calendar.getInstance();
+        progressBar=findViewById(R.id.progressBar2);
         name=findViewById(R.id.name);
         email=findViewById(R.id.email);
         phone=findViewById(R.id.phone);
         dob=findViewById(R.id.dob);
+        selectDOB=findViewById(R.id.selectDOB);
         pass=findViewById(R.id.pass);
         pass2=findViewById(R.id.pass2);
         gender=findViewById(R.id.gender);
         register=findViewById(R.id.register);
-        dob.setOnClickListener(new View.OnClickListener() {
+        selectDOB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Calendar calender = Calendar.getInstance();
                 int day = calender.get(Calendar.DAY_OF_MONTH);
                 int month = calender.get(Calendar.MONTH);
                 int year = calender.get(Calendar.YEAR);
@@ -56,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                dob.setText(String.format("%d/%d/%d", dayOfMonth, monthOfYear + 1, year));
+                                dob.setText(String.format("%02d/%02d/%d", dayOfMonth, monthOfYear + 1, year));
                             }
                         }, year, month, day);
                 picker.show();
@@ -87,21 +94,21 @@ public class RegisterActivity extends AppCompatActivity {
             requestPayload.put("Email",email.getText().toString());
             requestPayload.put("Phone",phone.getText().toString());
             requestPayload.put("DateOfBirth",dob.getText().toString());
-            requestPayload.put("Gender",findViewById(gender.getCheckedRadioButtonId()).toString());
+            RadioButton selectedGender = findViewById(gender.getCheckedRadioButtonId());
+            requestPayload.put("Gender",selectedGender.getText().toString());
             requestPayload.put("Password",pass.getText().toString());
-
-            Intent i = new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(i);
         }
         catch (JSONException e) {
             e.printStackTrace();
         }
+        progressBar.setVisibility(View.VISIBLE);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
                 url, requestPayload,
                 new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
+                        progressBar.setVisibility(View.INVISIBLE);
                         Log.d("JSONPost", response.toString());
                         PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit()
                                 .putString("user_data",response.toString()).apply();
@@ -112,6 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressBar.setVisibility(View.INVISIBLE);
                 VolleyLog.d("JSONPost", "Error: " + error.getMessage());
                 Toast.makeText(getApplicationContext(), error.networkResponse.data.toString(), Toast.LENGTH_SHORT).show();
 
@@ -169,12 +177,12 @@ public class RegisterActivity extends AppCompatActivity {
     {
         if(dob.getText().toString().isEmpty())
         {
-            name.setError("Please enter your dob");
+            dob.setError("Please enter your dob");
             return false;
         }
         else
         {
-            name.setError(null);
+            dob.setError(null);
             return  true;
         }
     }

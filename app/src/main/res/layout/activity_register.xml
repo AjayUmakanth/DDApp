@@ -20,13 +20,13 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
+                android:layout_width="322dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="20sp"
+                android:layout_marginTop="10sp"
                 android:text="Enter Details"
                 android:textColor="@color/text_color"
-                android:textSize="55sp"
+                android:textSize="40sp"
                 android:textStyle="bold"
                 tools:text="Enter Details" />
 
@@ -169,12 +169,12 @@
                 android:id="@+id/register"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25sp"
                 android:layout_marginLeft="50sp"
+                android:layout_marginTop="25sp"
                 android:layout_marginBottom="50sp"
-                android:background="@color/button_color"
+                android:background="#164073"
                 android:text="Register"
-                android:textColor="@color/text_color"
+                android:textColor="@color/button_color"
                 android:textSize="20sp" />
         </LinearLayout>
     </ScrollView>

@@ -59,9 +59,10 @@
         android:layout_marginTop="59dp"
         android:layout_marginEnd="119dp"
         android:layout_marginRight="119dp"
-        android:background="#fafafa"
+        android:background="#164073"
         android:text="Sign In"
-        android:textColor="#164073"
+        android:shape="rectangle"
+        android:textColor="#fafafa"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -79,9 +80,9 @@
         android:layout_marginTop="121dp"
         android:layout_marginEnd="119dp"
         android:layout_marginRight="116dp"
-        android:background="#fafafa"
+        android:background="#164073"
         android:text="@string/register"
-        android:textColor="#164073"
+        android:textColor="#fafafa"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -107,11 +108,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="69dp"
-        android:layout_marginLeft="69dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginRight="67dp"
         app:srcCompat="@drawable/full_logo" />
 
 </RelativeLayout>

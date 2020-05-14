@@ -7,12 +7,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
-        android:layout_width="match_parent"
+        android:layout_width="351dp"
         android:layout_height="213sp"
         android:layout_gravity="center"
         android:layout_marginLeft="30sp"
-        android:layout_marginRight="30sp"
         android:layout_marginTop="15sp"
+        android:layout_marginRight="30sp"
         android:layout_marginBottom="15sp"
         android:baselineAligned="false"
         card_view:cardCornerRadius="1sp"
@@ -20,7 +20,7 @@
         card_view:cardUseCompatPadding="true">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="351dp"
             android:layout_height="match_parent"
             android:background="@color/button_color"
             android:orientation="vertical">
@@ -31,10 +31,11 @@
                 android:layout_height="40sp"
                 android:layout_marginStart="30sp"
                 android:layout_marginLeft="30sp"
-                android:textSize="20sp"
+                android:background="#164073"
                 android:ems="10"
                 android:text="@string/radio_option_4"
-                android:textColor="@color/text_color" />
+                android:textColor="@color/button_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/date"
@@ -42,10 +43,11 @@
                 android:layout_height="40sp"
                 android:layout_marginStart="30sp"
                 android:layout_marginLeft="30sp"
-                android:textSize="20sp"
+                android:background="#164073"
                 android:ems="10"
                 android:text="@string/radio_option_4"
-                android:textColor="@color/text_color" />
+                android:textColor="@color/button_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/time"
@@ -53,10 +55,11 @@
                 android:layout_height="40sp"
                 android:layout_marginStart="30sp"
                 android:layout_marginLeft="30sp"
-                android:textSize="20sp"
+                android:background="#164073"
                 android:ems="10"
                 android:text="@string/radio_option_4"
-                android:textColor="@color/text_color" />
+                android:textColor="@color/button_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/qres"
@@ -64,10 +67,11 @@
                 android:layout_height="40sp"
                 android:layout_marginStart="30sp"
                 android:layout_marginLeft="30sp"
-                android:textSize="20sp"
+                android:background="#164073"
                 android:ems="10"
                 android:text="Questionnaire Result : "
-                android:textColor="@color/text_color" />
+                android:textColor="@color/button_color"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/mres"
@@ -75,10 +79,11 @@
                 android:layout_height="40sp"
                 android:layout_marginStart="30sp"
                 android:layout_marginLeft="30sp"
-                android:textSize="20sp"
+                android:background="#164073"
                 android:ems="10"
                 android:text="@string/radio_option_4"
-                android:textColor="@color/text_color" />
+                android:textColor="@color/button_color"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

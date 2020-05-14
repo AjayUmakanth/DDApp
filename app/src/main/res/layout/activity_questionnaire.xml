@@ -17,9 +17,9 @@
         android:layout_marginStart="240dp"
         android:layout_marginLeft="240dp"
         android:layout_marginTop="53dp"
-        android:background="@color/button_color"
+        android:background="#164073"
         android:text="@string/previous"
-        android:textColor="@color/text_color"
+        android:textColor="@color/button_color"
         android:textStyle="bold" />
 
     <Button
@@ -36,9 +36,9 @@
         android:layout_marginTop="23dp"
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
-        android:background="@color/button_color"
+        android:background="#164073"
         android:text="next"
-        android:textColor="@color/text_color"
+        android:textColor="@color/button_color"
         android:textStyle="bold" />
 
     <TextView

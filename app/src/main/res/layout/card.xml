@@ -17,12 +17,13 @@
         android:baselineAligned="false"
         card_view:cardCornerRadius="1sp"
         card_view:cardElevation="4sp"
+        android:background="#164073"
         card_view:cardUseCompatPadding="true">
 
         <LinearLayout
-            android:layout_width="351dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/button_color"
+            android:background="#164073"
             android:orientation="vertical">
 
             <TextView

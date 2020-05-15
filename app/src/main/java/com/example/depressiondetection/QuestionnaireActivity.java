@@ -192,8 +192,10 @@ public class QuestionnaireActivity extends AppCompatActivity implements SurfaceH
             stopService(new Intent(QuestionnaireActivity.this, RecorderService.class));
             finish();
         }
-        currentQuestion--;
-        setQnA();
+        else {
+            currentQuestion--;
+            setQnA();
+        }
     }
 
     private Boolean storeAnswer()

@@ -76,19 +76,23 @@ public class ShowTestActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONArray response) {
-                        for(int i=0; i<response.length();i++) {
-                            try {
-                                JSONObject object=response.getJSONObject(i);
-                                testResults.add(new TestResult(
-                                        object.getString("Id"),
-                                        object.getString("DateTime"),
-                                        object.getString("QuestionnaireResult"),
-                                        object.getString("ModelResult")));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                        progressBar.setVisibility(View.INVISIBLE);
+                        if(response.length()==0)
+                            Toast.makeText(getApplicationContext(), "No tests present!!", Toast.LENGTH_LONG).show();
+                        else {
+                            for (int i = 0; i < response.length(); i++) {
+                                try {
+                                    JSONObject object = response.getJSONObject(i);
+                                    testResults.add(new TestResult(
+                                            object.getString("Id"),
+                                            object.getString("DateTime"),
+                                            object.getString("QuestionnaireResult"),
+                                            object.getString("ModelResult")));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                setData();
                             }
-                            setData();
-                            progressBar.setVisibility(View.INVISIBLE);
                         }
                     }
                 },

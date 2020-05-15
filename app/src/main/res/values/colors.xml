@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#164073</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="background_color">@android:color/holo_blue_bright</color>
-    <color name="text_color">@android:color/holo_blue_dark</color>
-    <color name="button_color">@android:color/holo_blue_light</color>
+    <color name="background_color">#fafafa</color>
+    <color name="text_color">#000000</color>
+    <color name="button_color">#fafafa</color>
 </resources>

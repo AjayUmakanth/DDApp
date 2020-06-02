@@ -7,64 +7,114 @@
     android:background="@color/background_color"
     tools:context=".ResultActivity">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="370sp"
-        android:layout_height="78sp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="195dp"
-        android:text="Your Depression Level"
-        android:textColor="@color/text_color"
-        android:textSize="35sp"
-        android:textStyle="bold" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="176dp"
-        android:layout_height="125dp"
-        android:layout_below="@+id/title"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="116dp"
-        android:layout_marginLeft="116dp"
-        android:layout_marginTop="30dp"
-        android:text="null"
-        android:textColor="@color/text_color"
-        android:textSize="100sp"
-        android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-    <Button
-        android:id="@+id/home"
-        android:layout_width="106dp"
-        android:layout_height="38dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="151dp"
-        android:layout_marginLeft="151dp"
-        android:layout_marginTop="502dp"
-        android:background="#164073"
-        android:text="home"
-        android:textColor="@color/button_color"
-        android:textSize="20sp" />
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="163dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="19sp"
+                android:layout_marginLeft="19sp"
+                android:layout_marginTop="32sp"
+                android:text="Depression Level\n(Questionnaire Result)"
+                android:textColor="@color/text_color"
+                android:textSize="35sp"
+                android:textStyle="bold" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="141dp"
-        android:layout_height="123dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="134dp"
-        android:layout_marginLeft="134dp"
-        android:layout_marginTop="250dp"
-        android:visibility="invisible" />
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="335dp"
+                android:layout_height="119dp"
+                android:layout_below="@+id/title"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:text="null"
+                android:textColor="@color/text_color"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/diagnosis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/result"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="25sp"
+                android:layout_marginLeft="25sp"
+                android:layout_marginTop="15sp"
+                android:text="null"
+                android:textColor="@color/text_color"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/treatment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/result"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="133dp"
+                android:layout_marginEnd="34dp"
+                android:layout_marginRight="34dp"
+                android:text="null"
+                android:textColor="@color/text_color"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/home"
+                android:layout_width="106sp"
+                android:layout_height="38sp"
+                android:layout_below="@+id/treatment"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="151sp"
+                android:layout_marginLeft="151sp"
+                android:layout_marginTop="34sp"
+                android:layout_marginBottom="34sp"
+                android:background="#164073"
+                android:text="home"
+                android:textColor="@color/button_color"
+                android:textSize="20sp" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="141sp"
+                android:layout_height="123sp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="134sp"
+                android:layout_marginLeft="134sp"
+                android:layout_marginTop="250sp"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

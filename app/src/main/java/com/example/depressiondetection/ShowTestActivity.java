@@ -60,7 +60,6 @@ public class ShowTestActivity extends AppCompatActivity {
     }
     public void getData()
     {
-
         progressBar.setVisibility(View.VISIBLE);
         RequestQueue queue = Volley.newRequestQueue(this);
         String userId= null;

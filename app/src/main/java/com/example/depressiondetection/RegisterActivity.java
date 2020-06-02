@@ -2,6 +2,7 @@ package com.example.depressiondetection;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -29,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -115,16 +118,15 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 }, new Response.ErrorListener() {
 
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressBar.setVisibility(View.INVISIBLE);
                 VolleyLog.d("JSONPost", "Error: " + error.getMessage());
                 try {
-                    String responseBody = new String(error.networkResponse.data, "utf-8");
+                    String responseBody = new String(error.networkResponse.data, StandardCharsets.UTF_8);
                     JSONObject data = new JSONObject(responseBody);
                     Toast.makeText(getApplicationContext(),data.getString("error"),Toast.LENGTH_SHORT).show();
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -135,10 +137,7 @@ public class RegisterActivity extends AppCompatActivity {
         queue.add(request);
     }
     private boolean validateUser(){
-        if(!(validateUserName()&&validateEmail()&&validateDob()&&validateGender()&&validatePhone()&&validatePass()))
-            return false;
-        else
-            return  true;
+        return validateUserName() && validateEmail() && validateDob() && validateGender() && validatePhone() && validatePass();
     }
     private boolean validateUserName()
     {

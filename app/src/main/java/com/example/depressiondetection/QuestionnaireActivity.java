@@ -126,8 +126,7 @@ public class QuestionnaireActivity extends AppCompatActivity implements SurfaceH
     public int getAge(String userDob) {
         Calendar dob = Calendar.getInstance();
         Calendar today = Calendar.getInstance();
-
-        dob.set(Integer.valueOf(userDob.substring(0,4)), Integer.valueOf(userDob.substring(5,7))-1, Integer.valueOf(userDob.substring(8)));
+        dob.set(Integer.parseInt(userDob.substring(6)), Integer.parseInt(userDob.substring(3,5))-1, Integer.parseInt(userDob.substring(0,2)));
 
         int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
 

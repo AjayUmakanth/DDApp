@@ -25,10 +25,13 @@ import java.io.FileNotFoundException;
 import cz.msebera.android.httpclient.Header;
 
 public class ResultActivity extends AppCompatActivity {
-    TextView result, title;
+    TextView result, title, diagnosis, treatment;
     Button home;
     String guid;
     ProgressBar progressBar;
+    int depression_level;
+    String[] diagnosis_values= new String[]{"Status: None", "Status: Mild", "Status: Moderate", "Status: Mod.\n              Severe", "Status: Severe"};
+    String[] treatment_values= new String[]{"Monitor; may not require treatment","Use clinical judgment (symptom duration, functional impairment) to determine necessity of treatment","Warrants active treatment with psychotherapy, medications, or combination"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,13 @@ public class ResultActivity extends AppCompatActivity {
         result=findViewById(R.id.result);
         title=findViewById(R.id.title);
         home=findViewById(R.id.home);
-        result.setText(String.valueOf(getIntent().getIntExtra("depression_value",0)));
+        diagnosis=findViewById(R.id.diagnosis);
+        treatment=findViewById(R.id.treatment);
+        int score = Integer.parseInt(String.valueOf(getIntent().getIntExtra("depression_value",0)));
+        depression_level = getDepressionLevel(score);
+        result.setText(depression_level+" (Score "+score+")");
+        diagnosis.setText(diagnosis_values[depression_level]);
+        treatment.setText(treatment_values[(int) Math.ceil((float)depression_level/2)]);
         guid= PreferenceManager.getDefaultSharedPreferences(this).getString("GUID","");
         progressBar = findViewById(R.id.progressBar);
         Toast.makeText(this,"Sending data..",Toast.LENGTH_LONG).show();
@@ -51,17 +60,35 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
     }
+    int getDepressionLevel(int score)
+    {
+        if(score<5)
+            return 0;
+        else if(score<10)
+            return 1;
+        else if(score<15)
+            return 2;
+        else if(score<20)
+            return 3;
+        else
+            return 4;
+    }
+
     void makeObjectsVisible()
     {
         result.setVisibility(View.VISIBLE);
         title.setVisibility(View.VISIBLE);
         home.setVisibility(View.VISIBLE);
+        diagnosis.setVisibility(View.VISIBLE);
+        treatment.setVisibility(View.VISIBLE);
     }
     void makeObjectsInvisible()
     {
         result.setVisibility(View.INVISIBLE);
         title.setVisibility(View.INVISIBLE);
         home.setVisibility(View.INVISIBLE);
+        diagnosis.setVisibility(View.INVISIBLE);
+        treatment.setVisibility(View.INVISIBLE);
     }
 
     void uploadData()

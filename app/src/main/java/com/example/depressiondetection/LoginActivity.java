@@ -1,8 +1,10 @@
 package com.example.depressiondetection;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -25,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 public class LoginActivity extends AppCompatActivity {
     TextView email,password;
@@ -81,16 +84,15 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }, new Response.ErrorListener() {
 
+                @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     progressBar.setVisibility(View.INVISIBLE);
                     VolleyLog.d("JSONPost", "Error: " + error.getMessage());
                     try {
-                        String responseBody = new String(error.networkResponse.data, "utf-8");
+                        String responseBody = new String(error.networkResponse.data, StandardCharsets.UTF_8);
                         JSONObject data = new JSONObject(responseBody);
                         Toast.makeText(getApplicationContext(),data.getString("error"),Toast.LENGTH_SHORT).show();
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -99,4 +101,3 @@ public class LoginActivity extends AppCompatActivity {
         queue.add(request);
         }
     }
-
